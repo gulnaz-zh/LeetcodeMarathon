@@ -1,0 +1,20 @@
+class Solution {
+    public int climbStairs(int n) {
+        int res1 = 2;
+        int res2 = 3;
+        int res = 0;
+    	if (n <= 3) {
+    		return n;
+    	}
+    	for(int i=3; i<n; i++) {
+    		if (i%2 == 1) {
+    			res = res1+res2;
+    			res1=res;
+    		} else {
+    			res = res1+res2;
+    			res2=res;
+    		}
+    	}
+    	return res;
+    }
+}
