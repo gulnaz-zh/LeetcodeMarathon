@@ -1,0 +1,36 @@
+class Solution {
+    public boolean wordPattern(String pattern, String str) {
+        char[] p = pattern.toCharArray();
+    	String[] s = str.split(" ");
+    	if(pattern==null||str==null){
+            return false;
+        }
+    	
+        if(p.length!=s.length){
+            return false;
+        }
+       
+        int count1 = 0;
+        int count2 = 0;
+        for (int i=0; i<p.length; i++) {
+        	for (int j=i+1; j<p.length; j++) {
+        		if (s[i].equals(s[j])) {
+        			count1++;
+        			if (p[i] == p[j]) {
+        				count2++;
+        			}
+        		}
+                if (p[i] == p[j]) {
+        			count1++;
+        			if (s[i].equals(s[j])) {
+        				count2++;
+        			}
+        		}
+        	}
+        }
+    	if (count1 != count2) {
+    		return false;
+    	}
+        return true;
+    }
+}
