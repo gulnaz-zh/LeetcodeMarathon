@@ -1,0 +1,17 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        List<Integer> num = new ArrayList<Integer>();
+        int i;
+    	for (i=0; i<nums2.length; i++) {
+    		num.add(nums2[i]);
+    	}
+    	for ( ;  i<nums1.length; i++) {
+    		num.add(nums1[nums1.length-1-i]);        
+    	}
+    	num.sort(null);
+    	
+    	for (int j=0; j<num.size(); j++) {
+    		nums1[j] = num.get(j);
+    	}
+    }
+}
